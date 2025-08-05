@@ -6,6 +6,7 @@ class PrimaryButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget child;
   final EdgeInsetsGeometry? padding;
+  final OutlinedBorder? shape;
 
   const PrimaryButton({
     super.key,
@@ -14,6 +15,9 @@ class PrimaryButton extends StatelessWidget {
     this.padding = const EdgeInsetsGeometry.symmetric(
       horizontal: 22,
       vertical: 10,
+    ),
+    this.shape = const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(5)),
     ),
   });
 
@@ -31,12 +35,10 @@ class PrimaryButton extends StatelessWidget {
             fontWeight: FontWeight.w500,
           );
         }),
-        shape: WidgetStateProperty.resolveWith<OutlinedBorder>((
+        shape: WidgetStateProperty.resolveWith<OutlinedBorder?>((
           Set<WidgetState> states,
         ) {
-          return RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(5),
-          );
+          return shape;
         }),
         backgroundColor: WidgetStateProperty.resolveWith<Color>((
           Set<WidgetState> states,
