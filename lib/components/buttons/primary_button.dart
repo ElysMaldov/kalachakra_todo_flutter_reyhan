@@ -5,8 +5,17 @@ import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
 class PrimaryButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget child;
+  final EdgeInsetsGeometry? padding;
 
-  const PrimaryButton({super.key, this.onPressed, required this.child});
+  const PrimaryButton({
+    super.key,
+    this.onPressed,
+    required this.child,
+    this.padding = const EdgeInsetsGeometry.symmetric(
+      horizontal: 22,
+      vertical: 10,
+    ),
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +48,10 @@ class PrimaryButton extends StatelessWidget {
         ) {
           return primaryColor;
         }),
-        padding: WidgetStateProperty.resolveWith<EdgeInsetsGeometry>((
+        padding: WidgetStateProperty.resolveWith<EdgeInsetsGeometry?>((
           Set<WidgetState> states,
         ) {
-          return EdgeInsetsGeometry.symmetric(horizontal: 22, vertical: 10);
+          return padding;
         }),
       ),
       child: child,

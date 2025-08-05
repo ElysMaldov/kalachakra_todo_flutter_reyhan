@@ -1,18 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kalachakra_todo_flutter_reyhan/enums/todo_status.dart';
 import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
 
 class TodoState {
-  final List<Todo> todos; // Made final for immutability
+  final List<Todo> todos;
+  final TodoStatus filterTodoStatus;
 
-  const TodoState({required this.todos});
+  const TodoState({required this.filterTodoStatus, required this.todos});
 
   TodoState copyWith({List<Todo>? todos}) {
-    return TodoState(todos: todos ?? this.todos);
+    return TodoState(
+      todos: todos ?? this.todos,
+      filterTodoStatus: TodoStatus.all,
+    );
   }
 }
 
 class TodoCubit extends Cubit<TodoState> {
-  TodoCubit() : super(const TodoState(todos: []));
+  TodoCubit()
+    : super(const TodoState(todos: [], filterTodoStatus: TodoStatus.all));
 
   // Create
   void addTodo(String title) {

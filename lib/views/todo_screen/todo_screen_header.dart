@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/components/todo_filter/todo_filter.dart';
 
 class TodoScreenHeader extends StatefulWidget {
   const TodoScreenHeader({super.key});
@@ -29,7 +30,13 @@ class _TodoScreenHeaderState extends State<TodoScreenHeader> {
                 ),
               ),
 
-              Input(),
+              Row(
+                children: [
+                  // TODO seperate this into SearchInput with connection to controller to query data
+                  // Input(),
+                  TodoFilter(),
+                ],
+              ),
             ],
           ),
         ],
