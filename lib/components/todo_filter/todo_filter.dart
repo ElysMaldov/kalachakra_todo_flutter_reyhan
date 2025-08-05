@@ -24,7 +24,7 @@ class _TodoFilterState extends State<TodoFilter> {
         children: [
           PrimaryButton(
             onPressed: toggleMenu,
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 14),
             child: Row(
               spacing: 30,
               children: [
@@ -34,7 +34,9 @@ class _TodoFilterState extends State<TodoFilter> {
             ),
           ),
           if (_showMenu)
-            Transform.translate(offset: Offset(0, 32), child: TodoFilterMenu()),
+            Transform.translate(offset: Offset(0, 36), child: TodoFilterMenu()),
+
+          // Positioned(top: 38, left: 0, right: 0, child: TodoFilterMenu()),
         ],
       ),
     );
