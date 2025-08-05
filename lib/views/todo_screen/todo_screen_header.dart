@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kalachakra_todo_flutter_reyhan/components/buttons/theme_toggle.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/inputs/input.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/inputs/todo_search_input.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/todo_filter/todo_filter.dart';
@@ -38,6 +39,7 @@ class _TodoScreenHeaderState extends State<TodoScreenHeader> {
                   children: [
                     Expanded(child: TodoSearchInput()),
                     TodoFilter(),
+                    ThemeToggle(),
                   ],
                 ),
               ),
