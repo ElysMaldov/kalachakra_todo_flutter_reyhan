@@ -1,3 +1,5 @@
+typedef TodoList = List<Todo>;
+
 class Todo {
   final int id;
   final String title;
@@ -12,5 +14,13 @@ class Todo {
       title: title,
       completed: completed,
     );
+  }
+
+  factory Todo.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {'id': int id, 'title': String title, 'completed': bool completed} =>
+        Todo(id: id, title: title, completed: completed),
+      _ => throw const FormatException('Failed to load album.'),
+    };
   }
 }
