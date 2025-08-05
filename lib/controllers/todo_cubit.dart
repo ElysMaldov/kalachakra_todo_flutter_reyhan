@@ -5,20 +5,36 @@ import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
 class TodoState {
   final List<Todo> todos;
   final TodoStatus filterTodoStatus;
+  final String todoSearchQuery;
 
-  const TodoState({required this.filterTodoStatus, required this.todos});
+  const TodoState({
+    required this.filterTodoStatus,
+    required this.todos,
+    required this.todoSearchQuery,
+  });
 
-  TodoState copyWith({List<Todo>? todos, TodoStatus? filterTodoStatus}) {
+  TodoState copyWith({
+    List<Todo>? todos,
+    TodoStatus? filterTodoStatus,
+    String? todoSearchQuery,
+  }) {
     return TodoState(
       todos: todos ?? this.todos,
       filterTodoStatus: filterTodoStatus ?? this.filterTodoStatus,
+      todoSearchQuery: todoSearchQuery ?? this.todoSearchQuery,
     );
   }
 }
 
 class TodoCubit extends Cubit<TodoState> {
   TodoCubit()
-    : super(const TodoState(todos: [], filterTodoStatus: TodoStatus.all));
+    : super(
+        const TodoState(
+          todos: [],
+          filterTodoStatus: TodoStatus.all,
+          todoSearchQuery: '',
+        ),
+      );
 
   // Create
   void addTodo(String title) {
@@ -85,5 +101,11 @@ class TodoCubit extends Cubit<TodoState> {
   void deleteTodo(int id) {
     final updatedTodos = state.todos.where((todo) => todo.id != id).toList();
     emit(state.copyWith(todos: updatedTodos));
+  }
+
+  // Query
+
+  void setTodoSearchQuery(String q) {
+    emit(state.copyWith(todoSearchQuery: q));
   }
 }

@@ -6,8 +6,15 @@ class Input extends StatefulWidget {
   final Widget? icon;
   final String? hintText;
   final TextEditingController? controller;
+  final void Function(String)? onChanged;
 
-  const Input({super.key, this.icon, this.hintText, this.controller});
+  const Input({
+    super.key,
+    this.icon,
+    this.hintText,
+    this.controller,
+    this.onChanged,
+  });
 
   @override
   State<Input> createState() => _InputState();
@@ -68,6 +75,7 @@ class _InputState extends State<Input> {
             color: Theme.of(context).colorScheme.tertiary,
           ),
           controller: widget.controller,
+          onChanged: widget.onChanged,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 11),
             hintText: widget.hintText,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/components/inputs/input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/components/inputs/todo_search_input.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/todo_filter/todo_filter.dart';
 
 class TodoScreenHeader extends StatefulWidget {
@@ -30,12 +31,15 @@ class _TodoScreenHeaderState extends State<TodoScreenHeader> {
                 ),
               ),
 
-              Row(
-                children: [
-                  // TODO seperate this into SearchInput with connection to controller to query data
-                  // Input(),
-                  TodoFilter(),
-                ],
+              SizedBox(
+                width: 750,
+                child: Row(
+                  spacing: 16,
+                  children: [
+                    Expanded(child: TodoSearchInput()),
+                    TodoFilter(),
+                  ],
+                ),
               ),
             ],
           ),
