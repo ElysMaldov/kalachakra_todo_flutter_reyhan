@@ -8,10 +8,10 @@ class TodoState {
 
   const TodoState({required this.filterTodoStatus, required this.todos});
 
-  TodoState copyWith({List<Todo>? todos}) {
+  TodoState copyWith({List<Todo>? todos, TodoStatus? filterTodoStatus}) {
     return TodoState(
       todos: todos ?? this.todos,
-      filterTodoStatus: TodoStatus.all,
+      filterTodoStatus: filterTodoStatus ?? this.filterTodoStatus,
     );
   }
 }
@@ -49,7 +49,7 @@ class TodoCubit extends Cubit<TodoState> {
   List<Todo> get incompleteTodos =>
       state.todos.where((todo) => !todo.completed).toList();
 
-  // Update
+  // Update - Todo
   void updateTodo(int id, {String? title, bool? completed}) {
     final updatedTodos = state.todos.map((todo) {
       if (todo.id == id) {
@@ -74,6 +74,11 @@ class TodoCubit extends Cubit<TodoState> {
     }).toList();
 
     emit(state.copyWith(todos: updatedTodos));
+  }
+
+  // Update - Filter
+  void setFilterTodoStatus(TodoStatus newStatus) {
+    emit(state.copyWith(filterTodoStatus: newStatus));
   }
 
   // Delete

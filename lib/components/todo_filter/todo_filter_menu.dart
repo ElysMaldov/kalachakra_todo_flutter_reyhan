@@ -3,6 +3,7 @@ import 'package:kalachakra_todo_flutter_reyhan/components/todo_filter/todo_filte
 import 'package:kalachakra_todo_flutter_reyhan/enums/todo_status.dart';
 import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
 
+// FIXME not taking full width of the stack
 class TodoFilterMenu extends StatelessWidget {
   const TodoFilterMenu({super.key});
 

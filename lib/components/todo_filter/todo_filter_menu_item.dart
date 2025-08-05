@@ -11,13 +11,15 @@ class TodoFilterMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final todoCubit = BlocProvider.of<TodoCubit>(context);
+
     return BlocSelector<TodoCubit, TodoState, TodoStatus>(
       selector: (state) {
         return state.filterTodoStatus;
       },
       builder: (context, state) => TextButton(
         onPressed: () {
-          // TODO use cubit
+          todoCubit.setFilterTodoStatus(status);
         },
         style: ButtonStyle(
           minimumSize: WidgetStateProperty.resolveWith<Size?>((
