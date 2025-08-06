@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
@@ -45,54 +46,67 @@ class _InputState extends State<Input> {
 
   @override
   Widget build(BuildContext context) {
-    var outlineInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(5),
-      borderSide: BorderSide(
-        color: Theme.of(context).colorScheme.tertiary,
-        width: 1,
-      ),
-    );
-
-    var textStyle = GoogleFonts.inter(
-      textStyle: Theme.of(context).textTheme.headlineLarge,
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-      color: inputHintColor,
-    );
-
-    return Container(
-      constraints: BoxConstraints(minWidth: 360, maxWidth: 750),
-      child: Container(
-        decoration: BoxDecoration(
-          border: _isFocused
-              ? Border.all(color: Color.fromRGBO(108, 99, 255, 0.4), width: 2)
-              : null,
-          borderRadius: BorderRadius.circular(7),
-        ),
-        child: TextField(
-          focusNode: _focusNode,
-          style: textStyle.copyWith(
-            color: Theme.of(context).colorScheme.tertiary,
+    return ValueListenableBuilder(
+      valueListenable: AdaptiveTheme.of(context).modeChangeNotifier,
+      builder: (context, value, child) {
+        var outlineInputBorder = OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: value == AdaptiveThemeMode.dark
+                ? primaryColor
+                : Theme.of(context).colorScheme.tertiary,
+            width: 1,
           ),
-          controller: widget.controller,
-          onChanged: widget.onChanged,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 11),
-            hintText: widget.hintText,
-            hintStyle: textStyle,
-            border: outlineInputBorder,
-            enabledBorder: outlineInputBorder,
-            focusedBorder: outlineInputBorder,
-            suffixIcon: Container(
-              margin: EdgeInsets.only(right: 4),
-              width: 21,
-              height: 21,
-              child: widget.icon,
+        );
+
+        var textStyle = GoogleFonts.inter(
+          textStyle: Theme.of(context).textTheme.headlineLarge,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: inputHintColor,
+        );
+
+        return Container(
+          constraints: BoxConstraints(minWidth: 360, maxWidth: 750),
+          child: Container(
+            decoration: BoxDecoration(
+              border: _isFocused
+                  ? Border.all(
+                      color: Color.fromRGBO(108, 99, 255, 0.4),
+                      width: 2,
+                    )
+                  : null,
+              borderRadius: BorderRadius.circular(7),
             ),
-            focusColor: Colors.red,
+            child: TextField(
+              focusNode: _focusNode,
+              style: textStyle.copyWith(
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              controller: widget.controller,
+              onChanged: widget.onChanged,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 11,
+                ),
+                hintText: widget.hintText,
+                hintStyle: textStyle,
+                border: outlineInputBorder,
+                enabledBorder: outlineInputBorder,
+                focusedBorder: outlineInputBorder,
+                suffixIcon: Container(
+                  margin: EdgeInsets.only(right: 4),
+                  width: 21,
+                  height: 21,
+                  child: widget.icon,
+                ),
+                focusColor: Colors.red,
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
