@@ -49,8 +49,6 @@ class TodoCubit extends Cubit<TodoState> {
   }
 
   // Read
-  List<Todo> get todos => state.todos;
-
   Todo? getTodoById(int id) {
     try {
       return state.todos.firstWhere((todo) => todo.id == id);
@@ -58,6 +56,8 @@ class TodoCubit extends Cubit<TodoState> {
       return null;
     }
   }
+
+  List<Todo> get todos => state.todos;
 
   List<Todo> get completedTodos =>
       state.todos.where((todo) => todo.completed).toList();
@@ -79,6 +79,10 @@ class TodoCubit extends Cubit<TodoState> {
     }).toList();
 
     emit(state.copyWith(todos: updatedTodos));
+  }
+
+  void populateTodos(TodoList newTodos) {
+    emit(state.copyWith(todos: newTodos));
   }
 
   void toggleTodoCompletion(int id) {
