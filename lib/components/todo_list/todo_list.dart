@@ -40,7 +40,17 @@ class _TodoListState extends State<TodoList> {
             : ListView.builder(
                 itemCount: state.length,
                 itemBuilder: (context, index) {
-                  return TodoItemTile(todo: state[index]);
+                  return Column(
+                    children: [
+                      TodoItemTile(todo: state[index]),
+                      if (index < state.length - 1)
+                        Divider(
+                          thickness: 1,
+                          color: Theme.of(context).colorScheme.tertiary,
+                          height: 17,
+                        ),
+                    ],
+                  );
                 },
               ),
       ),

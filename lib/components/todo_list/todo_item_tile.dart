@@ -19,6 +19,7 @@ class TodoItemTile extends StatelessWidget {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
 
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       title: Text(
         todo.title,
         style: GoogleFonts.kanit(
