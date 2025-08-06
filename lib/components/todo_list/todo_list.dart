@@ -25,7 +25,10 @@ class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
     return BlocSelector<TodoCubit, TodoState, todoTypes.TodoList>(
-      selector: (state) => state.todos,
+      selector: (state) {
+        final todoCubit = context.read<TodoCubit>();
+        return todoCubit.filteredTodos;
+      },
       builder: (context, state) => Container(
         constraints: BoxConstraints(minWidth: 360, maxWidth: 750),
         width: 750,

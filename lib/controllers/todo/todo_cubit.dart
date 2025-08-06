@@ -57,13 +57,41 @@ class TodoCubit extends Cubit<TodoState> {
     }
   }
 
-  List<Todo> get todos => state.todos;
+  List<Todo> get filteredTodos => getFilteredTodos();
 
-  List<Todo> get completedTodos =>
-      state.todos.where((todo) => todo.completed).toList();
+  List<Todo> getFilteredTodos() {
+    final filter = state.filterTodoStatus;
+    final q = state.todoSearchQuery;
 
-  List<Todo> get incompleteTodos =>
-      state.todos.where((todo) => !todo.completed).toList();
+    if (q.isEmpty && filter == TodoStatus.all) {
+      return state.todos;
+    }
+
+    // Filter by query and status
+    var filteredTodos = state.todos.where((todo) {
+      bool doesStatusFitFilter = false;
+      switch (filter) {
+        case TodoStatus.complete:
+          doesStatusFitFilter = todo.completed == true;
+          break;
+        case TodoStatus.incomplete:
+          doesStatusFitFilter = todo.completed == false;
+          break;
+        case TodoStatus.all:
+        default:
+          doesStatusFitFilter = true;
+          break;
+      }
+
+      // Case insensitive search in title
+      final regex = RegExp(q, caseSensitive: false);
+      final doesTitleMatchQuery = regex.hasMatch(todo.title);
+
+      return doesStatusFitFilter && doesTitleMatchQuery;
+    });
+
+    return filteredTodos.toList();
+  }
 
   // Update - Todo
   void updateTodo(int id, {String? title, bool? completed}) {
