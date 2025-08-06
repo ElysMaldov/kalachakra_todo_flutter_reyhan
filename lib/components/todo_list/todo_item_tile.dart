@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kalachakra_todo_flutter_reyhan/components/buttons/edit_todo_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
 
 class TodoItemTile extends StatelessWidget {
@@ -18,14 +19,14 @@ class TodoItemTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
         ),
       ),
-      leading: Checkbox(value: true, onChanged: (value) {}),
+      leading: Checkbox(value: todo.completed, onChanged: (value) {}),
       trailing: SizedBox(
         // TODO fix width
         width: 80,
         child: Row(
           children: [
             // TODO use svg from figma for the icons
-            IconButton(onPressed: () {}, icon: Icon(Icons.edit_outlined)),
+            EditTodoButton(todo: todo),
             IconButton(onPressed: () {}, icon: Icon(Icons.delete_outline)),
           ],
         ),

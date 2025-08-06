@@ -82,7 +82,7 @@ class TodoCubit extends Cubit<TodoState> {
           doesStatusFitFilter = true;
           break;
       }
-
+      // PROG gonna do  update todos
       // Case insensitive search in title
       final regex = RegExp(q, caseSensitive: false);
       final doesTitleMatchQuery = regex.hasMatch(todo.title);

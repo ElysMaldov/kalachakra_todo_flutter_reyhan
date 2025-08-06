@@ -31,4 +31,17 @@ class TodoController {
       throw Exception(e);
     }
   }
+
+  Future<Todo> updateTodo(Todo updatedTodo) async {
+    try {
+      todoCubit.updateTodo(
+        updatedTodo.id,
+        title: updatedTodo.title,
+        completed: updatedTodo.completed,
+      );
+      return await todoAPI.updateTodo(updatedTodo);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }

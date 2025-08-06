@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/primary_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/dialogs/todo_dialog.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_controller.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
+import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
 
-/// When clicked, renders an add todo dialog with connection to TodoController
-class AddTodoButton extends StatelessWidget {
-  const AddTodoButton({super.key});
+class EditTodoButton extends StatelessWidget {
+  final Todo todo;
+  final TextEditingController _controller = TextEditingController();
+
+  EditTodoButton({super.key, required this.todo});
 
   @override
   Widget build(BuildContext context) {
@@ -15,32 +17,28 @@ class AddTodoButton extends StatelessWidget {
     final TodoController todoController = TodoController(todoCubit: todoCubit);
     final scaffoldMessenger = ScaffoldMessenger.of(context);
 
-    // TODO fix padding and width and add dropshadow
-    return PrimaryButton(
+    return IconButton(
       onPressed: () {
         showDialog(
           context: context,
           builder: (BuildContext context) {
+            _controller.text = todo.title;
+
             return TodoDialog(
-              title: "NEW NOTE",
+              title: "EDIT NOTE",
+              controller: _controller,
               hintText: "Input your note...",
-              controller: TextEditingController(),
               onPressed: (title) async {
-                await todoController.addTodo(title);
+                await todoController.updateTodo(todo.copyWith(title: title));
                 scaffoldMessenger.showSnackBar(
-                  SnackBar(content: Text('Todo added.')),
+                  SnackBar(content: Text('Todo edited.')),
                 );
               },
             );
           },
         );
       },
-      padding: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: const Icon(Icons.add, size: 24),
-      ),
+      icon: Icon(Icons.edit_outlined),
     );
   }
 }

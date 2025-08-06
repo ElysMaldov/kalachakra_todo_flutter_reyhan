@@ -53,7 +53,7 @@ class TodosApi {
     final response = await http.put(
       Uri.parse("$baseURL/todos/${newTodoData.id}"),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(newTodoData),
+      body: jsonEncode(newTodoData.toJson()),
     );
 
     if (response.statusCode == 200) {
@@ -75,7 +75,7 @@ class TodosApi {
     final response = await http.put(
       Uri.parse("$baseURL/todos/${todo.id}"),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(toggledTodo),
+      body: jsonEncode(toggledTodo.toJson()),
     );
 
     if (response.statusCode == 200) {

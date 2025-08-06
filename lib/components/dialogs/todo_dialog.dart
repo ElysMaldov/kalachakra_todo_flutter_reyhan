@@ -8,13 +8,14 @@ class TodoDialog extends StatelessWidget {
   final String title;
   final String hintText;
   final Function(String) onPressed;
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController controller;
 
-  TodoDialog({
+  const TodoDialog({
     super.key,
     required this.title,
     required this.hintText,
     required this.onPressed,
+    required this.controller,
   });
 
   @override
@@ -30,7 +31,7 @@ class TodoDialog extends StatelessWidget {
         ),
         textAlign: TextAlign.center,
       ),
-      content: Input(hintText: hintText, controller: _controller),
+      content: Input(hintText: hintText, controller: controller),
       contentPadding: EdgeInsets.only(
         top: 25,
         bottom: 128,
@@ -44,15 +45,15 @@ class TodoDialog extends StatelessWidget {
           child: Text("CANCEL"),
           onPressed: () {
             Navigator.of(context).pop();
-            _controller.clear();
+            controller.clear();
           },
         ),
         PrimaryButton(
           child: Text("APPLY"),
           onPressed: () {
-            onPressed(_controller.text);
+            onPressed(controller.text);
             Navigator.of(context).pop();
-            _controller.clear();
+            controller.clear();
           },
         ),
       ],
