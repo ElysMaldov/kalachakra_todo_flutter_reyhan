@@ -44,4 +44,13 @@ class TodoController {
       throw Exception(e);
     }
   }
+
+  Future<Todo> toggleTodo(Todo todo) async {
+    try {
+      todoCubit.toggleTodoCompletion(todo.id);
+      return await todoAPI.toggleTodo(todo);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }

@@ -78,6 +78,7 @@ class TodoCubit extends Cubit<TodoState> {
           doesStatusFitFilter = todo.completed == false;
           break;
         case TodoStatus.all:
+        // ignore: unreachable_switch_default
         default:
           doesStatusFitFilter = true;
           break;
