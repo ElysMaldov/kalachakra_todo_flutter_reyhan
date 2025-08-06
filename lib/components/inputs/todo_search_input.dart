@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/inputs/input.dart';
-import 'package:kalachakra_todo_flutter_reyhan/controllers/todo_cubit.dart';
+import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
 
 class TodoSearchInput extends StatefulWidget {
   const TodoSearchInput({super.key});

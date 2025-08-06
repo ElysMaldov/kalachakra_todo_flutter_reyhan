@@ -1,7 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kalachakra_todo_flutter_reyhan/controllers/todo_cubit.dart';
+import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
 import 'package:kalachakra_todo_flutter_reyhan/themes/dark_theme.dart';
 import 'package:kalachakra_todo_flutter_reyhan/themes/light_theme.dart';
 import 'package:kalachakra_todo_flutter_reyhan/utils/router.dart';
