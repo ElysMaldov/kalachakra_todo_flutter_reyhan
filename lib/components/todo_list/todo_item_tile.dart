@@ -6,6 +6,7 @@ import 'package:kalachakra_todo_flutter_reyhan/components/buttons/edit_todo_butt
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_controller.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
 import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
+import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
 
 class TodoItemTile extends StatelessWidget {
   final Todo todo;
@@ -24,17 +25,31 @@ class TodoItemTile extends StatelessWidget {
           textStyle: Theme.of(context).textTheme.bodyLarge,
           fontSize: 20,
           fontWeight: FontWeight.w500,
-          color: Theme.of(context).colorScheme.secondary,
+          color: todo.completed
+              ? Color.fromRGBO(37, 37, 37, 0.5)
+              : Theme.of(context).colorScheme.secondary,
+          decoration: todo.completed
+              ? TextDecoration.lineThrough
+              : TextDecoration.none,
         ),
       ),
-      leading: Checkbox(
-        value: todo.completed,
-        onChanged: (_) async {
-          await todoController.toggleTodo(todo);
-          scaffoldMessenger.showSnackBar(
-            SnackBar(content: Text('Todo toggled.')),
-          );
-        },
+      leading: Transform.scale(
+        scale: 1.2,
+        child: Checkbox(
+          activeColor: Theme.of(context).colorScheme.tertiary,
+          checkColor: primaryColor,
+          side: BorderSide(
+            color: Theme.of(context).colorScheme.tertiary,
+            width: 1,
+          ),
+          value: todo.completed,
+          onChanged: (_) async {
+            await todoController.toggleTodo(todo);
+            scaffoldMessenger.showSnackBar(
+              SnackBar(content: Text('Todo toggled.')),
+            );
+          },
+        ),
       ),
       trailing: SizedBox(
         // TODO fix width
