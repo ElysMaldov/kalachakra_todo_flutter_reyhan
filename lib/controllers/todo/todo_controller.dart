@@ -53,4 +53,13 @@ class TodoController {
       throw Exception(e);
     }
   }
+
+  Future<Todo> deleteTodo(int id) async {
+    try {
+      todoCubit.deleteTodo(id);
+      return await todoAPI.deleteTodo(id);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }

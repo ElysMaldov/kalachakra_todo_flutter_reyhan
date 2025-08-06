@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kalachakra_todo_flutter_reyhan/components/buttons/delete_todo_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/buttons/edit_todo_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_controller.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
@@ -42,7 +43,7 @@ class TodoItemTile extends StatelessWidget {
           children: [
             // TODO use svg from figma for the icons
             EditTodoButton(todo: todo),
-            IconButton(onPressed: () {}, icon: Icon(Icons.delete_outline)),
+            DeleteTodoButton(todoId: todo.id),
           ],
         ),
       ),
