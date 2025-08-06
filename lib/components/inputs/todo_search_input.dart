@@ -22,11 +22,16 @@ class _TodoSearchInputState extends State<TodoSearchInput> {
         onChanged: (q) => todoCubit.setTodoSearchQuery(q),
         hintText: "Search note...",
         // FIXME size not correct
-        icon: SvgPicture.asset(
-          "icons/search-icon.svg",
-          semanticsLabel: "Search Icon",
-          width: 16,
-          height: 16,
+        // icon: SvgPicture.asset(
+        //   "icons/search-icon.svg",
+        //   semanticsLabel: "Search Icon",
+        //   width: 16,
+        //   height: 16,
+        // ),
+        icon: Icon(
+          Icons.search_outlined,
+          size: 21,
+          color: Theme.of(context).colorScheme.tertiary,
         ),
       ),
     );
