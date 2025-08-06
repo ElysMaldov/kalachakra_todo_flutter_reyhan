@@ -1,7 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/themes/colors.dart';
 
 class Input extends StatefulWidget {
   final Widget? icon;

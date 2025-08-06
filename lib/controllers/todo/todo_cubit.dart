@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kalachakra_todo_flutter_reyhan/enums/todo_status.dart';
+import 'package:kalachakra_todo_flutter_reyhan/models/enums/todo_status.dart';
 import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
 
 class TodoState {

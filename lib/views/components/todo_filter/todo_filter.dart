@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/primary_button.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/todo_filter/todo_filter_menu.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/primary_button.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/todo_filter/todo_filter_menu.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
-import 'package:kalachakra_todo_flutter_reyhan/enums/todo_status.dart';
+import 'package:kalachakra_todo_flutter_reyhan/models/enums/todo_status.dart';
 
 class TodoFilter extends StatefulWidget {
   const TodoFilter({super.key});

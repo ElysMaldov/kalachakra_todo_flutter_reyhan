@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/dialogs/todo_dialog.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/dialogs/todo_dialog.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_controller.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
-import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/themes/colors.dart';
 
 /// When clicked, renders an add todo dialog with connection to TodoController
 class AddTodoButton extends StatelessWidget {

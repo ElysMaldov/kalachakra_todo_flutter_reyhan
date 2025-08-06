@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/delete_todo_button.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/edit_todo_button.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/delete_todo_button.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/edit_todo_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_controller.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
 import 'package:kalachakra_todo_flutter_reyhan/models/todo.dart';
-import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/themes/colors.dart';
 
 class TodoItemTile extends StatelessWidget {
   final Todo todo;

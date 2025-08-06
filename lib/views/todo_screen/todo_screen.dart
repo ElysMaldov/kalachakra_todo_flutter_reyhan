@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/add_todo_button.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/todo_list/todo_list.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/add_todo_button.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/todo_list/todo_list.dart';
 import 'package:kalachakra_todo_flutter_reyhan/views/todo_screen/todo_screen_header.dart';
 
 class TodoScreen extends StatefulWidget {

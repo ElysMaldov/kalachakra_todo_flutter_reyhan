@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
-import 'package:kalachakra_todo_flutter_reyhan/enums/todo_status.dart';
+import 'package:kalachakra_todo_flutter_reyhan/models/enums/todo_status.dart';
 
 class TodoFilterMenuItem extends StatelessWidget {
   final TodoStatus status;

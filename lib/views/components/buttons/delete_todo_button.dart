@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_controller.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
-import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/themes/colors.dart';
 
 class DeleteTodoButton extends StatefulWidget {
   final int todoId;

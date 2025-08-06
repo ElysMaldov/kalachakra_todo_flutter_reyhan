@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/theme_toggle.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/inputs/todo_search_input.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/todo_filter/todo_filter.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/theme_toggle.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/inputs/todo_search_input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/todo_filter/todo_filter.dart';
 
 class TodoScreenHeader extends StatefulWidget {
   const TodoScreenHeader({super.key});

@@ -1,9 +1,9 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/inputs/input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/inputs/input.dart';
 import 'package:kalachakra_todo_flutter_reyhan/controllers/todo/todo_cubit.dart';
-import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/themes/colors.dart';
 
 class TodoSearchInput extends StatefulWidget {
   const TodoSearchInput({super.key});

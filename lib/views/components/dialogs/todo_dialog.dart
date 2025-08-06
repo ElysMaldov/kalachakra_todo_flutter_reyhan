@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/primary_button.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/buttons/secondary_button.dart';
-import 'package:kalachakra_todo_flutter_reyhan/components/inputs/input.dart';
-import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/primary_button.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/buttons/secondary_button.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/components/inputs/input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/views/themes/colors.dart';
 
 class TodoDialog extends StatelessWidget {
   final String title;
