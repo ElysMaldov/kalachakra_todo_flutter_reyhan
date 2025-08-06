@@ -49,10 +49,12 @@ class _InputState extends State<Input> {
     return ValueListenableBuilder(
       valueListenable: AdaptiveTheme.of(context).modeChangeNotifier,
       builder: (context, value, child) {
+        bool isDarkMode = value == AdaptiveThemeMode.dark;
+
         var outlineInputBorder = OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
-            color: value == AdaptiveThemeMode.dark
+            color: isDarkMode
                 ? primaryColor
                 : Theme.of(context).colorScheme.tertiary,
             width: 1,
@@ -63,14 +65,14 @@ class _InputState extends State<Input> {
           textStyle: Theme.of(context).textTheme.headlineLarge,
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: inputHintColor,
+          color: isDarkMode ? darkInputHintColor : lighInputHintColor,
         );
 
         return Container(
           constraints: BoxConstraints(minWidth: 360, maxWidth: 750),
           child: Container(
             decoration: BoxDecoration(
-              border: _isFocused
+              border: _isFocused && !isDarkMode
                   ? Border.all(
                       color: Color.fromRGBO(108, 99, 255, 0.4),
                       width: 2,
@@ -81,7 +83,9 @@ class _InputState extends State<Input> {
             child: TextField(
               focusNode: _focusNode,
               style: textStyle.copyWith(
-                color: Theme.of(context).colorScheme.tertiary,
+                color: isDarkMode
+                    ? primaryColor
+                    : Theme.of(context).colorScheme.tertiary,
               ),
               controller: widget.controller,
               onChanged: widget.onChanged,
@@ -101,7 +105,6 @@ class _InputState extends State<Input> {
                   height: 21,
                   child: widget.icon,
                 ),
-                focusColor: Colors.red,
               ),
             ),
           ),
