@@ -13,7 +13,16 @@ class ThemeToggle extends StatelessWidget {
       child: PrimaryButton(
         padding: EdgeInsets.all(8),
         onPressed: () => AdaptiveTheme.of(context).toggleThemeMode(),
-        child: Icon(Icons.dark_mode_outlined, size: 22),
+        child: ValueListenableBuilder(
+          valueListenable: AdaptiveTheme.of(context).modeChangeNotifier,
+          builder: (_, mode, child) {
+            if (mode == AdaptiveThemeMode.dark) {
+              return Icon(Icons.light_mode_outlined, size: 22);
+            }
+
+            return Icon(Icons.dark_mode_outlined, size: 22);
+          },
+        ),
       ),
     );
   }

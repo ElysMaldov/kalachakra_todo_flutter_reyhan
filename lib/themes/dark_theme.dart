@@ -17,5 +17,6 @@ final darkTheme = ThemeData(
     onTertiary: primaryColor,
     surface: secondaryColor,
     onSurface: primaryColor,
+    onSecondaryContainer: darkStrikeThrough,
   ),
 );

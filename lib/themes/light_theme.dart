@@ -17,5 +17,6 @@ final lightTheme = ThemeData(
     onTertiary: primaryColor,
     surface: primaryColor,
     onSurface: secondaryColor,
+    onSecondaryContainer: lightStrikeThrough,
   ),
 );

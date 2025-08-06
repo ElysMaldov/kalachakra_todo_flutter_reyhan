@@ -27,11 +27,12 @@ class TodoItemTile extends StatelessWidget {
           fontSize: 20,
           fontWeight: FontWeight.w500,
           color: todo.completed
-              ? Color.fromRGBO(37, 37, 37, 0.5)
+              ? Theme.of(context).colorScheme.onSecondaryContainer
               : Theme.of(context).colorScheme.secondary,
           decoration: todo.completed
               ? TextDecoration.lineThrough
               : TextDecoration.none,
+          decorationColor: Theme.of(context).colorScheme.onSecondaryContainer,
         ),
       ),
       leading: Transform.scale(

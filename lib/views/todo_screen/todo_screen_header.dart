@@ -28,6 +28,7 @@ class _TodoScreenHeaderState extends State<TodoScreenHeader> {
                   textStyle: Theme.of(context).textTheme.headlineLarge,
                   fontSize: 26,
                   fontWeight: FontWeight.w500,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
 
