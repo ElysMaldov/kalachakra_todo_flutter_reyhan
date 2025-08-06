@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/buttons/primary_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/buttons/secondary_button.dart';
 import 'package:kalachakra_todo_flutter_reyhan/components/inputs/input.dart';
+import 'package:kalachakra_todo_flutter_reyhan/themes/colors.dart';
 
 class TodoDialog extends StatelessWidget {
   final String title;
@@ -21,6 +22,10 @@ class TodoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: primaryColor, width: 1.0),
+      ),
       title: Text(
         title,
         style: GoogleFonts.kanit(
