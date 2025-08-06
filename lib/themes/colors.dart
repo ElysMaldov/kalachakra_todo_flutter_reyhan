@@ -6,3 +6,4 @@ final accentColor = Color.fromRGBO(108, 99, 255, 1);
 final accentGhostColor = Color.fromRGBO(102, 102, 102, 1);
 final errorColor = Color.fromRGBO(230, 0, 0, 1);
 final inputHintColor = Color.fromRGBO(195, 193, 229, 1);
+final deactivatedIcon = Color.fromRGBO(205, 205, 205, 1);
